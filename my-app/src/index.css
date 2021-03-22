@@ -1,0 +1,566 @@
+body {
+  justify-content: center;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+header {
+  height: 70px;
+  background-color: rgb(20, 20, 20);
+  color:rgb(123, 199, 224);
+}
+
+.headerContainer {
+  display:flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.logo {
+  padding-left: 40px;
+  padding-top: 10px;
+  font-size: 35px;
+}
+
+.names {
+  padding-right: 40px;
+  padding-top: 20px;
+  font-size: 25px;
+}
+
+footer {
+  height: 150px;
+}
+
+.carousel-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  height: inherit;
+  position: relative;
+}
+
+.carousel-content-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: inherit;
+}
+
+.carousel-content {
+  display: flex;
+  height: inherit;
+  transition: all 250ms linear;
+  -ms-overflow-style: none;  /*hide scrollbar in IE and Edge*/
+  scrollbar-width: none;  /*hide scrollbar in Firefox*/
+}
+
+/* hide scrollbar in webkit browser */
+.carousel-content::-webkit-scrollbar, .carousel-content::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-content > * {
+  width: 100%;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.left-arrow, .right-arrow {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+.left-arrow {
+  left: 24px;
+}
+
+.right-arrow {
+  right: 24px;
+}
+
+
+#productOverviewContainer {
+  display: grid;
+  height: 760px;
+  grid-template-areas:   "images info"
+  "images style"
+  "images cart"
+  "whiteSpace social"
+  "description description";
+
+  grid-template-rows: .5fr 1fr 1fr .2fr .5fr .2fr;
+  grid-template-columns: 2fr 1fr;
+}
+
+#productDetailContainer .overview {
+  grid-area: overview;
+  background-color: yellow;
+}
+
+#productDetailContainer .social {
+  grid-area: social;
+}
+
+#productDetailContainer .whiteSpace {
+  grid-area: whiteSpace;
+  background-color: white;
+}
+#productOverviewContainer .images {
+  grid-area: images;
+  background-color: white;
+}
+#productOverviewContainer .info {
+  grid-area: info;
+
+}
+#productOverviewContainer .style {
+  grid-area: style;
+}
+#productOverviewContainer .cart {
+  grid-area: cart;
+  /* background-color: red; */
+}
+
+#productOverviewContainer .description {
+  grid-area: description;
+  margin-left: 15%;
+  margin-right: 15%;
+  /* background-color: yellow; */
+}
+
+#productOverviewContainer .whiteSpace {
+  grid-area: whiteSpace;
+  background-color: white;
+}
+
+#styleContainer {
+  display: grid;
+  height: 100%;
+  grid-template-areas:  "price price price price price"
+                        "styleH styleH styleH styleH styleH"
+                        "TN0 TN1 TN2 TN3 WS"
+                        "TN4 TN5 TN6 TN7 WS";
+  grid-template-rows: 1fr 1fr 3fr 3fr;
+  grid-template-columns: 2.25fr 2.25fr 2.25fr 2.25fr 3fr;
+}
+#styleContainer .price {
+  grid-area: price;
+  background-color: white;
+}
+
+#styleContainer .styleH {
+  display: flex;
+  grid-area: styleH;
+  background-color: white;
+}
+#styleContainer .WS{
+  grid-area: WS;
+  background-color: white;
+}
+
+.overlap{
+  top: 12px;
+  position: relative;
+  left: 30px;
+  width: 15px;
+  background-color: white;
+}
+
+.TN {
+  background-color: #FF0000;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+#styleContainer .TN0 {
+  grid-area: TN0;
+  padding: 10%;
+  display: grid;
+  position: relative;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN1 {
+  grid-area: TN1;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN2 {
+  grid-area: TN2;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN3 {
+  grid-area: TN3;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN4 {
+  grid-area: TN4;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN5 {
+  grid-area: TN5;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN6 {
+  grid-area: TN6;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN7 {
+  grid-area: TN7;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+
+
+#qaContainerOne {
+  display: grid;
+  margin-left: 15%;
+  margin-right: 15%;
+  grid-template-areas:   "searchBar searchBar"
+                        "questionAnswer extraLinks";
+
+  grid-template-rows: 50px 40fr;
+  grid-template-columns: 1fr;
+}
+
+#qaContainerOne .searchBar {
+  background-color: red;
+  grid-area: searchBar;
+}
+
+#qaContainerOne .questionAnswer {
+  grid-area: questionAnswer;
+}
+
+#qaContainerOne .extraLinks {
+  grid-area: extraLinks;
+}
+
+#qaContainerTwo {
+  display: grid;
+  margin-left: 15%;
+  margin-right: 15%;
+  /* width: 80%; */
+  height: 80px;
+  grid-template-areas:   "moreAnsweredQuestions addQuestions";
+
+  grid-template-rows: 4fr 3fr;
+  grid-template-columns: 2fr 2fr;
+}
+
+#qaContainerTwo .moreAnsweredQuestions {
+  grid-area: moreAnsweredQuestions;
+}
+
+#qaContainerTwo .addQuestions {
+  grid-area: addQuestions;
+}
+
+#qContainer {
+  display: grid;
+  height: 25px;
+  grid-template-areas:   "questions helpfulLink divider addAnswerLink";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+#qContainer .questions {
+  grid-area: questions;
+  border: solid 2px;
+
+  font-size: small;
+  padding-left: 5px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#qContainer .helpfulLink {
+  grid-area: helpfulLink;
+  font-size: xx-small;
+  font-style: italic;
+  font-weight: normal;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+#qContainer .divider {
+  grid-area: divider;
+  font-size: xx-small;
+  font-style: italic;
+  font-weight: normal;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+#qContainer .addAnswerLink {
+  grid-area: addAnswerLink;
+  cursor: pointer;
+  font-size: xx-small;
+  font-style: italic;
+  font-weight: normal;
+  justify-content: right;
+  margin-top: 20px;
+  padding-right: 10px;
+  text-decoration: underline;
+}
+
+#aContainer {
+  display: grid;
+  height: 25px;
+  grid-template-areas:   "userInfo date dividerOne answerHelpful dividerTwo report";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+#aContainer .userInfo {
+  font-size: xx-small;
+  font-style: italic;
+  padding-left: 26px;
+}
+
+#aContainer .date {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+#aContainer .dividerOne {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+#aContainer .answerHelpful {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+#aContainer .dividerTwo {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+#aContainer .report {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+.answers {
+  font-size: small;
+  padding-top: 15px;
+  padding-left: 2px;
+}
+
+.inputBar {
+  font-weight: bold;
+  height: 50px;
+  width: auto;
+}
+
+.yes {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.reportText {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.moreAnsweredQuestionsButton {
+  background-color: rgb(123, 199, 224);
+  color: white;
+  font-weight: bolder;
+  height: 50px;
+}
+
+.addQuestionButton {
+  background-color: rgb(123, 199, 224);
+  color: white;
+  font-weight: bolder;
+  height: 50px;
+}
+
+.collapseButton {
+  background-color: rgb(7, 7, 7);
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  margin: 10px;
+}
+
+.collapseButton:hover {
+  background-color: rgb(81, 97, 112);
+}
+
+#ratingsReviewsContainer {
+  margin: 100px 15% 100px 15%;
+  display: grid;
+  height: 500px;
+  grid-template-areas:   "rrtitle rrtitle"
+                         "ratings reviews"
+                         "ratings buttons";
+  grid-template-rows: 20px auto 100px;
+  grid-template-columns: 350px 1fr;
+}
+
+#ratingsReviewsContainer .rrtitle {
+  grid-area: rrtitle;
+  font-size: 20px;
+}
+.ratings {
+  grid-area: ratings;
+}
+.reviews {
+  grid-area: reviews;
+  display: grid;
+  grid-template-areas: "rating" "user" "date"
+                       "review-summ" "review-summ" "review-summ"
+                       "review-body""review-body""review-body";
+  grid-template-rows: auto;
+}
+
+.review-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-rating {
+  grid-area: rating;
+
+
+}
+.review-user {
+  grid-area: user;
+
+}
+.review-date {
+  grid-area: date;
+
+}
+#ratingsReviewsContainer .buttons {
+  grid-area: buttons;
+  padding-top: 30px;
+}
+
+.review-summ {
+  grid-area: review-summ;
+  font-size: 18px;
+  font-weight: bold;
+  height: 30px;
+}
+
+.review-body {
+  grid-area: review-body;
+  font-size:16px;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.review-recommend {
+  padding-bottom: 20px;
+}
+
+.ratingVal {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.modal-80w {
+  width: 90% !important;
+}
+
+.response {
+  background-color: lightgrey;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 7px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(51 102 204);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(51 102 204);
+  cursor: pointer;
+}
+
+.factors-desc {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.rfTitle {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.rfDescriptors {
+  font-size: smaller;
+}
+
