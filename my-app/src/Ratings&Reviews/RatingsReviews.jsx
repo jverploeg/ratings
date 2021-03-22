@@ -36,17 +36,29 @@ class RatingsReviews extends React.Component {
     axios.get('/reviews', {
       params: {
         product_id: this.state.product_id,
+        //product_id: 1,
       },
     })
       .then(response => {
-        let results = response.data.results;
-        console.log(results);
+        console.log({response})
+        let results = response.data;
+        console.log({results});
         this.setState({ reviews: results });
       })
       .catch(response => {
         console.log(response);
       })
   }
+  // getReviews() {
+  //   fetch('http://localhost:3000/db/reviews')
+  //     .then(response => {
+  //       console.log(response)
+  //     })
+  //     .then(data => {
+  //       setMerchants(data);
+  //     });
+  // }
+
 
   loadMoreReviews() {
     this.setState({

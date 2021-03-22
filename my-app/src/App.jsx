@@ -16,13 +16,13 @@ class App extends React.Component {
     };
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);
-    this.getRatings = this.getRatings.bind(this);
+    //this.getRatings = this.getRatings.bind(this);
   }
 
   componentDidMount() {
     this.getProduct(this.state.product_id);
     this.getStyles(this.state.product_id);
-    this.getRatings(this.state.product_id);
+    //this.getRatings(this.state.product_id);
   }
 
   getProduct(product_id) {
@@ -37,28 +37,31 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
-  getRatings() {
-    axios.get('/reviews/meta', {
-      params: {
-        product_id: this.state.product_id
-      }
-    })
-      .then(response => {
-        //console.log(response.data);
-        let ratings = response.data.ratings;
-        this.setState({ ratings: ratings,
-                        ratingsMeta: response.data})
-      })
-  }
+  // getRatings() {
+  //   axios.get('/reviews/meta', {
+  //     params: {
+  //       product_id: this.state.product_id
+  //     }
+  //   })
+  //     .then(response => {
+  //       //console.log(response.data);
+  //       let ratings = response.data.ratings;
+  //       this.setState({ ratings: ratings,
+  //                       ratingsMeta: response.data})
+  //     })
+  // }
 
   render() {
     // setEndPoint(222)
     return (
       <div id="container">
         <ProductOverview AppState={this.state} />
-        <QuestionsAnswers Questions={this.state.product_id} product={this.state.product.name} fullProduct={this.state.product}/>
+        {/* <QuestionsAnswers Questions={this.state.product_id} product={this.state.product.name} fullProduct={this.state.product}/> */}
         <div id="ratingsScroll"></div>
-        <RatingsReviews className="ratingsReviewsContainer" ratings={this.state.ratingsMeta} productID={this.state.product_id} />
+        <RatingsReviews className="ratingsReviewsContainer"
+        //ratings={this.state.ratingsMeta}
+        productID={this.state.product_id}
+         />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react';
+import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
 import Recommend from './Recommend.jsx';
 import Moment from 'react-moment';
@@ -11,12 +12,52 @@ class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {helpful: this.props.review.helpfulness};
+    this.markHelp = this.markHelp.bind(this);
     this.addHelpful = this.addHelpful.bind(this);
   }
 
+  markHelp(id) {
+    axios.put(`/reviews/:${review_id}/helpful`, {
+      // params: {
+      //   product_id: this.state.product_id,
+      //   //product_id: 1,
+      // },
+    })
+    .then(response => {
+      console.log({response})
+      let results = response.data;
+      console.log({results});
+      this.setState({ reviews: results });
+    })
+    .catch(response => {
+      console.log(response);
+    })
+  };
+
+
   addHelpful() {
       this.setState({helpful: this.state.helpful + 1})
-  }
+    console.log(this.props.review)
+    let review_id = this.props.review.review_id;
+    //markHelp(review_id);
+    axios.put(`/reviews/helpful`, {
+      params: {
+        review_id: review_id,
+        //product_id: 1,
+      },
+    })
+    .then(response => {
+      console.log({response})
+      let results = response.data;
+      console.log({results});
+      this.setState({ reviews: results });
+    })
+    .catch(response => {
+      console.log(response);
+    })
+
+  };
+
 
   render() {
     const resultsLoaded = this.props.review;
