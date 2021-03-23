@@ -25,3 +25,4 @@ yarn-error.log*
 /public/app.js
 /config
 /server/data
+sdc.pem
