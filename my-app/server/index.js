@@ -94,7 +94,7 @@ app.get('*', (req, res) => {
   } else if (req.url.indexOf('reviews') !== -1) {
     //axios get requests to reviews server
     console.log('reviews requests: ', req.url)
-    console.log(req);
+    // console.log(req);
     //routes set up inside here
 
     // GET REVIEWS FOR CURRENT PRODUCT

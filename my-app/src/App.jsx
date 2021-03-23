@@ -12,7 +12,7 @@ class App extends React.Component {
       product_id: this.props.id,
       product: [],
       productStyles: [],
-      ratings: {},
+      //ratings: {},
     };
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);

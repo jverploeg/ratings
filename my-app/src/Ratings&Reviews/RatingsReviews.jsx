@@ -16,12 +16,14 @@ class RatingsReviews extends React.Component {
       reviews: [],
       reviewIndex: 2,
       isOpen: false,
+      ratings: {},
     };
     this.getReviews = this.getReviews.bind(this);
     this.loadMoreReviews = this.loadMoreReviews.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     //this.handleSubmit = this.handleSubmit.bind(this);
+    //this.getRatings = this.getRatings.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +33,18 @@ class RatingsReviews extends React.Component {
       this.getReviews();
     });
   }
+  // componentDidUpdate() {
+  //   this.getRatings(this.state.reviews);
+  // }
+  // componentDidMount() {
+  //   this.setState({
+  //     product_id: this.props.productID,
+  //   }, () => {
+  //     this.getReviews();
+  //   });
+  // }
+  // console.log({reviews})
+  // console.log({ratings})
 
   getReviews() {
     axios.get('/reviews', {
@@ -40,15 +54,60 @@ class RatingsReviews extends React.Component {
       },
     })
       .then(response => {
-        console.log({response})
+        //console.log({response})
         let results = response.data;
-        console.log({results});
+        //console.log({results});
+        // this.setState({ratings: results.rating});
+        // console.log({ratings});
         this.setState({ reviews: results });
+        //console.log({reviews})
+        return response;
+      })
+      .then(response => {
+        let temp = {
+          c : 0,
+          r : 0,
+          m : 0,
+        };
+        let target = response.data;
+        console.log(target)
+        target.forEach((item, index) => {
+          temp.c++;
+          temp.r = temp.r + item.rating;
+          temp.m = (item.recommend) ? (temp.m = temp.m + 1)  : (temp.m=temp.m);
+        });
+        console.log(temp.c);
+        this.setState({ratings: temp });
       })
       .catch(response => {
         console.log(response);
       })
-  }
+      // .finally(() => {
+      //   console.log({reviews})
+      // })
+  };
+  // getRatings() {
+  //   console.log(this.state.reviews)
+  //   let temp = {
+  //     c : 0,
+  //     r : 0,
+  //     m : 0,
+  //   };
+  //   target.forEach((item, index) => {
+  //       temp.c++;
+  //       temp.r = temp.r + item.rating;
+  //       temp.m = (item.recommend) ? temp.m++ : temp.m;
+  //   });
+  //   console.log({temp});
+  //   if(temp.c > 0) {
+  //     this.setState({
+  //       ratings: temp,
+  //     })
+  //   }
+  //   console.log({ratings});
+  // }
+
+
   // getReviews() {
   //   fetch('http://localhost:3000/db/reviews')
   //     .then(response => {
@@ -80,7 +139,11 @@ class RatingsReviews extends React.Component {
       <div id="ratingsReviewsContainer">
         <div className="rrtitle">Ratings and Reviews</div>
         <div className="ratings">
-          <Ratings ratings={this.props.ratings} />
+          {(this.state.ratings.c > 1) ? (
+            <Ratings ratings={this.state.ratings} />
+          ) : null
+            // <Ratings/>
+          }
         </div>
         <div className="reviews">
           <ReviewList reviews={this.state.reviews} index={this.state.reviewIndex} />

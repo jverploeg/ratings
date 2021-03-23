@@ -20,12 +20,12 @@ const getReviews = (query) => {
   return new Promise ((resolve, reject) => {
     pool.query(query)
       .then((res) => {
-        console.log(res.rows)
-        let rows = res.rows;
-        rows.forEach((item, index) => {
-          ratings.push(item.rating);
-        });
-        console.log({ratings});
+        //console.log(res.rows)
+        //let rows = res.rows;
+        // rows.forEach((item, index) => {
+        //   ratings.push(item.rating);
+        // });
+        //console.log({ratings});
         //resolve(res.data.results);
         resolve(res.rows);
       })
