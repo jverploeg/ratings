@@ -102,6 +102,11 @@ CREATE INDEX rating_key ON ratings (product_id);
 insert into ratings (product_id, count, rating, recommended) select product_id, count(product_id), sum(rating), count(recommend) from reviews group by product_id;
 update ratings set average = rating / count;
 
+-- with src as (
+-- update reviews set helpfulness = helpfulness + 1 where review_id=5777874 returning *)
+-- update ratings set
+
+
 
 -- -- ************************************** products
 -- DROP TABLE IF EXISTS products;
