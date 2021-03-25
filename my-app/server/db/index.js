@@ -1,12 +1,21 @@
 /* eslint-disable */
 const path = require('path');
+const login = require('./config.js');
 const { Client, Pool } = require('pg');
 
+// const pool = new Pool({
+//   user: 'jverploeg',
+//   host: 'localhost',
+//   database: 'api',
+//   port: 5432,
+// });
 const pool = new Pool({
-  user: 'jverploeg',
-  host: 'localhost',
-  database: 'api',
-  port: 5432,
+  host: login.host,
+  user: login.user,
+  password: login.password,
+  //host: 'localhost',
+  database: login.database,
+  port: login.port,
 });
 
 // error handle
