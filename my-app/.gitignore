@@ -26,3 +26,4 @@ yarn-error.log*
 /config
 /server/data
 sdc.pem
+/server/db/index.js
