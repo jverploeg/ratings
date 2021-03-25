@@ -4,7 +4,8 @@ const { Client, Pool } = require('pg');
 
 const pool = new Pool({
   user: 'jverploeg',
-  host: 'localhost',
+  //host: 'localhost',
+  host: 'ec2-3-15-40-32.us-east-2.compute.amazonaws.com'
   database: 'api',
   port: 5432,
 });
