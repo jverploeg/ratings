@@ -5,7 +5,7 @@ import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import Ratings from './Ratings.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';
-import AddReview from './AddReview.jsx';
+//import AddReview from './AddReview.jsx';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
